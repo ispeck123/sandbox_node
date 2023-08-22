@@ -1,0 +1,15 @@
+{
+
+    "MYSQL_USER":"ispeck",
+    "MYSQL_ROOT_PASSWORD":"Root1234",
+    "MYSQL_DATABASE":"ispeck",
+    "MYSQL_LOCAL_PORT":"3306",
+    "MYSQL_DOCKER_PORT":"3306",
+    "MYSQL_HOST":"202.21.32.156",
+    "ISPECK_HOST":"http://164.52.218.100:9000", 
+
+    
+    "NODE_LOCAL_PORT":"3020",
+    "NODE_DOCKER_PORT":"3020"
+    
+    }

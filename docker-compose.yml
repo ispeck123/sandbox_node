@@ -1,0 +1,43 @@
+version: '3'
+services:
+  ispeckmariadb:
+    image: mariadb
+    container_name: ispeck-mariadb
+    ports:
+      - "3308:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: "ispeck22pw"
+    networks:
+      - docker-services
+    volumes:
+      - ./data:/var/lib/mysql
+
+  ispeck-web-api:
+    build:
+      context: .
+    ports:
+      - '3020:3020'
+    restart: on-failure
+    container_name: ispeck-web-api
+    networks:
+      - docker-services
+    depends_on:
+      - ispeckmariadb
+    volumes:
+      - .:/app # Look at the server directory and copy everything into the app folder in the container
+      - /app/node_modules # Inside the container, don't try to override this folder, just leave as is
+    environment:
+      - MYSQL_USER=ispeck
+      - MYSQL_ROOT_PASSWORD=Root1234
+      - MYSQL_DATABASE=ispeck
+      - MYSQL_HOST=202.21.32.156
+
+networks:
+  docker-services:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
+
+ 
