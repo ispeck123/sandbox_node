@@ -25,6 +25,8 @@ function makeAuditDb({ExecQuery}) {
     async function UserAudit({Id,Type,Effect,Status}){
         var time = new Date();
         var exact_time = (time.getTime())/1000;
+        console.log("time", time);
+        console.log("exact_time", exact_time)
         // if (Effect.length > 20) {
         //     let effectStrArr = [];
         //     if (!Effect.includes("/")) {
@@ -41,7 +43,7 @@ function makeAuditDb({ExecQuery}) {
         //         }
         //     }
         // }
-        sql = `INSERT INTO user_audit_log(user_id,event_type,event_result,audit_status,timestamp) VALUES('${Id}','${Type}','${Effect}','${Status}','${exact_time}')`
+        sql = `INSERT INTO user_audit_log(user_id,event_type,event_result,audit_status) VALUES('${Id}','${Type}','${Effect}','${Status}')`
         return ExecQuery(sql)
     }
     

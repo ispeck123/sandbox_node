@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/project/view";
+const url = "http://103.13.113.132:9000/project/view";
 function GetProjectsController(){
     
     return async function handle(httpRequest){
@@ -13,8 +13,10 @@ function GetProjectsController(){
         }
         else
         {
+             
              id=httpRequest.params.id;
              userid=httpRequest.params.userid;
+             console.log("userid",userid)
              complete_url= url+'/'+id+'?userid='+userid;
         }
 

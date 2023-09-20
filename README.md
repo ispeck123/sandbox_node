@@ -27,7 +27,7 @@
     "MYSQL_LOCAL_PORT":"3306",
     "MYSQL_DOCKER_PORT":"3306",
     "MYSQL_HOST":"202.21.32.156",
-    "ISPECK_HOST":"http://164.52.218.100:9000", -->
+    "ISPECK_HOST":"http://103.13.113.132:9000", -->
 
 
     <!-- // "MYSQL_USER":"root",
@@ -36,7 +36,7 @@
     // "MYSQL_LOCAL_PORT":"3306",
     // "MYSQL_DOCKER_PORT":"3306",
     // "MYSQL_HOST":"ispeckmariadb",
-    // "ISPECK_HOST":"http://164.52.218.100:9000", -->
+    // "ISPECK_HOST":"http://103.13.113.132:9000", -->
 
 
 

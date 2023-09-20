@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/project_by_pipeline_id/get";
+const url = "http://103.13.113.132:9000/project_by_pipeline_id/get";
 function GetProjectsByPipelineId () {
     return async function handle(httpRequest) {
         var { pipeline_id } = httpRequest.params;

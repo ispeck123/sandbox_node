@@ -6,7 +6,7 @@ const path = require('path');
 var fs = require('fs');
 const { json } = require('body-parser');
 
-const url = "http://164.52.218.100:9000/artifact/weight/retrieve";
+const url = "http://103.13.113.132:9000/artifact/weight/retrieve";
 function GetArtifactWeightController(){
     
     return async function handle(httpRequest){

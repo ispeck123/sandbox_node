@@ -4,13 +4,16 @@ const bcrypt = require("bcrypt")
 
 function makeGetByIdpassword({makeUserDb}) {
     return async function UserLogin(userInfo){  
+      console.log("ORIGINAL INFO",userInfo)
           console.log("______IN GET BY ID PASSWORD USER____________\n");    
           console.log("USERINFO:: ", userInfo);
           const user = await User(userInfo)
+          console.log("SERVICE",user)
           const result = await makeUserDb.GetByName({Name:user.getUserName()})
+          console.log("RESULT",result)
           console.log(userInfo);
           const count=await passwordcheckexpire(result[0].USER_ID);
-          console.log(result[0]);
+          console.log("PRINTIMG INDEX",result[0]);
            
            if(result[0]== "undefined" || result[0]== undefined || result[0]== "") {
                 console.log("---------> Password not ")  
@@ -40,7 +43,14 @@ function makeGetByIdpassword({makeUserDb}) {
                 const userid = result[0].USER_ID;
                 console.log(result[0].USER_ID);
                // console.log('given password:'+user.getPassword())
-                if (await bcrypt.compare(user.getOldPassword(),hashedPassword)) {
+               const checker= await bcrypt.hash(userInfo.Password,10);
+               console.log("ACTUAL PASSWORD",checker);
+               console.log("HASHED PASSWORD",hashedPassword);
+               
+               compare_result = await bcrypt.compare(userInfo.Password, hashedPassword)
+               console.log("compare_result", compare_result); 
+               //if (hashedPassword==userInfo.Password) {
+                if (await bcrypt.compare(userInfo.Password, hashedPassword)) {
                   console.log("---------> Login Successful")
                   console.log("---------> Generating accessToken")
                   Msg='success';

@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/pipeline/update";
+const url = "http://103.13.113.132:9000/pipeline/update";
 function UpdatePipelineController(){
     
     return async function handle(httpRequest){

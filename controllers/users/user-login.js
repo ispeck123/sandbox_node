@@ -9,6 +9,7 @@ function UserLoginController({}){
         const {body}=httpRequest      
         // const result= await makeGetByIdpassword(body);
         const result= await makeGetByIdpassword(body);
+        console.log("LOGIN CHECK",result)
         var status, effect ;     
         let count_time=await makeUserDb.GetCountTime({Name:body.UserName});
         let user_id=await makeUserDb.GetByName({Name:body.UserName});

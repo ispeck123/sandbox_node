@@ -33,7 +33,8 @@ function makeUserDb({ExecQuery}) {
         UpdateUser,
         GetChangePasswrdDate,
         GetRegisterPasswrdDate,
-        GetAllUsers
+        GetAllUsers,
+        GetUsersFromName
     })
     async function GetAll() {
         sql = "SELECT A.*,B.* FROM ispeck.user_master as A inner join role_maser as B where A.USER_ROLE_ID=B.ROLE_ID"
@@ -124,14 +125,8 @@ function makeUserDb({ExecQuery}) {
         return ExecQuery(sql)
     }
 
-    async function Insert({
-        UserFullName,
-        UserName,
-        Password,
-        Email
-        //Role
-    } = {}) {
-        
+    async function Insert(UserFullName,UserName,Password,Email) {
+        console.log("USERNAME",UserName)
         sql = `INSERT INTO user_master(USER_FULLNAME,USER_EMAIL,USER_NAME,USER_PASSWORD,USER_STATUS,WRONG_ATTEMPT,LOCK_ACCOUNT,COUNT_TIME) VALUES ('${UserFullName}','${Email}','${UserName}','${Password}',1,0,0,0)`
 
         return ExecQuery(sql)
@@ -248,7 +243,12 @@ function makeUserDb({ExecQuery}) {
      
         sql=`SELECT ROLE_ID FROM role_maser WHERE ROLE_NAME='${name}' ;`
         return ExecQuery(sql)
-    }  
+    }
+    
+    async function GetUsersFromName({name}){
+        sql = `SELECT * FROM user_master where USER_NAME = '${name}';`
+        return ExecQuery(sql)
+    }
 }
 
 module.exports=makeUserDb

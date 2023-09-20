@@ -10,7 +10,7 @@ function ChangePasswordController({makeChangePassword}){
         console.log("Changing password for id::", id);
 
         await makeChangePassword(id,body);
-        await makeAuditDb.UserAudit({Id:id,Type:"Change Password",Effect:"Password Changed Successfully",Status:1});
+        //await makeAuditDb.UserAudit({Id:id,Type:"Change Password",Effect:"Password Changed Successfully",Status:1});
 
         return{
             headers,

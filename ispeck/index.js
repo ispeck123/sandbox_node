@@ -3,7 +3,7 @@
 (async () => {
   try {
 
-    const response = await fetch('http://164.52.218.100:9000/project/types')
+    const response = await fetch('http://103.13.113.132:9000/project/types')
     const json = await response.json()
 
     //console.log(response);
@@ -15,7 +15,7 @@
 })();
 */
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/project/types";
+const url = "http://103.13.113.132:9000/project/types";
 
 const getData = async url => {
   try {

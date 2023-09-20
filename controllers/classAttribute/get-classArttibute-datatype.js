@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/class_attribute/datatypes";
+const url = "http://103.13.113.132:9000/class_attribute/datatypes";
 function GetClassAttributeDatatypeController(){
     
     return async function handle(httpRequest){

@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/attribute_values/delete";
+const url = "http://103.13.113.132:9000/attribute_values/delete";
 function  DeleteClassAttributeValueByIdController(){
     // console.log("|\n|\n|\n|\n|\n|\n|\n|\n|", "in DeleteClassAttributeValueByIdController::");
     return async function handle(httpRequest){

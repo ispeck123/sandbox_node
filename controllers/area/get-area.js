@@ -1,7 +1,7 @@
 
 const {headers}=require('../../config/config')
 const fetch = require("node-fetch");
-const url = "http://164.52.218.100:9000/area/view";
+const url = "http://103.13.113.132:9000/area/view";
 function GetAreaController(){
     
     return async function handle(httpRequest){
