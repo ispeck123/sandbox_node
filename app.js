@@ -272,7 +272,7 @@ app.get('/sourceLocationType/:id',auth.validateToken,ControllerCallback(GetSourc
 app.put('/updateSource',auth.validateToken,ControllerCallback(UpdateSourceController))
 app.put('/updateSourceFileMap',auth.validateToken,ControllerCallback(UpdateSourceFileMapController))
 app.get('/sourceFileDownload/:id',auth.validateToken,ControllerCallback(GetSourceFileDownloadController))
-app.get('/condition/:id',ControllerCallback(GetSourceFileListConditionController))
+app.get('/condition/:id/:userid',ControllerCallback(GetSourceFileListConditionController))
 app.get('/projecttype/:id',ControllerCallback(GetProjectTypeDataController))
 
 

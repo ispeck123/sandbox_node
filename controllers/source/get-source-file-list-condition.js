@@ -6,9 +6,19 @@ function GetSourceFileListConditionController(){
     
     return async function handle(httpRequest){
         console.log("Ekhane .............////////////////////////......................")
-        var id,complete_url;
-        id=httpRequest.params.id;
-        complete_url= url+'/'+id;
+        var id,userid,complete_url;
+        if(httpRequest.params.userid== "null")
+        {
+             id=httpRequest.params.id;
+            complete_url= url+'/'+id;
+        }
+        else
+        {
+             id=httpRequest.params.id;
+             userid=httpRequest.params.userid;
+             complete_url= url+'/'+id+'?userid='+userid;
+        }
+        
         console.log("Full URL: ",complete_url);
         const response = await fetch(complete_url);
         const json = await response.json();
