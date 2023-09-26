@@ -2,6 +2,7 @@
 const {headers}=require('../../config/config')
 const {makeUserDb,makeAuditDb}=require('../../data-access/index');
 const bcrypt = require("bcrypt")
+const sendMail = require('./send-mail')
 
 function AddUserController({makeAddUser}){
     console.log("REQUEST CALL")
@@ -35,6 +36,9 @@ function AddUserController({makeAddUser}){
          await makeUserDb.InsertPasswordLog({Id:user_id[0].USER_ID,RPassword:pass[0].FIRST_PASSWORD,LPassword:pass[0].SECOND_PASSWORD,Event:"Adding New User",Count:0,Status:1});
         // await makeAuditDb.UserAudit({Id:user_id[0].USER_ID,Type:"Register",Effect:"User created successfully",Status:1});
 
+        let mailSubject = "Confirmation of Registration in Ispeck VA SandBox"
+        let mailBody = `Dear User ${body.UserFullName},\n\nThanks for registering in Ispeck VA SandBox.\nYour username - ${body.UserName}\nYour password - ${body.Password}\n\nThanks.\n\n\n\nBest Regards,\nIspeck VA SandBox`
+        sendMail(receiverMailId = body.Email, subject = mailSubject, text = mailBody)
         return{
             headers,
             statusCode:200,

@@ -153,7 +153,7 @@ function makeUserDb({ExecQuery}) {
     }
 
     async function Update(id,body){
-        sql=`UPDATE user_master SET ? WHERE user_master.USER_ID=${id}`
+        sql=`UPDATE user_master SET user_master.USER_EMAIL = '${body.Email}' WHERE user_master.USER_ID=${id}`
         return ExecQuery(sql,body)
     } 
     

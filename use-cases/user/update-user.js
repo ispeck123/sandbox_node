@@ -6,9 +6,9 @@ const MakeRulesRunner = require('../../core/business/rules-runner')
 function MakeUpdatedUser({makeUserDb}) {
     return async function updateUser(id,body) { 
         const ruleRunners=MakeRulesRunner(await IUserExistsById(id))
-        if(ruleRunners===null){
+        //if(ruleRunners===null){
           return await makeUserDb.Update(id,body)
-        }
+        //}
     }
 
 
