@@ -10,7 +10,9 @@ function ResetPasswordController({makeResetPassword}){
         const {body}=httpRequest;
         const res=httpRequest.ffdata;
         const result=await makeResetPassword(body.Email)
-        console.log(result)
+        console.log("result", result)
+        console.log("body", body)
+        console.log("res", res)
         var mail = 'ispeckdigital1@gmail.com';
         var pass = 'fibdeucfdflxigdx';
         var mail = nodemailer.createTransport({

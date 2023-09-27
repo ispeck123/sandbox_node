@@ -168,7 +168,7 @@ app.get('/userDetails/:id',auth.validateToken,ControllerCallback(GetUserByIdCont
 app.put('/userUpdate/:id',auth.validateToken,ControllerCallback(UpdateUserController))
 app.post('/resetPassword',ControllerFormDataCallback(ResetPasswordController))
 app.post('/check_token/:token',ControllerCallback(CheckTokenController))
-app.post('/saveResetPassword',ControllerCallback(ResetPasswordByUserController))
+app.post('/saveResetPassword/:id',ControllerCallback(ResetPasswordByUserController))
 app.put('/changePassword/:id',auth.validateToken,ControllerCallback(ChangePasswordController))
 
 //======role management================

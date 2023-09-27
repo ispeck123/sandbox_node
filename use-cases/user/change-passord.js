@@ -29,8 +29,9 @@ function makeChangePassword() {
             } else {
                 var count = await makeUserDb.GetCount(id);
                 console.log(count);
+                var pass_count = 0;
                 if (count[0].PASS_COUNT == null || count[0].PASS_COUNT == 0){
-                    var pass_count = 1
+                    pass_count = 1
                 } else {
                     pass_count = count[0].PASS_COUNT + 1
                 }

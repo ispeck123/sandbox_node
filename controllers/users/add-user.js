@@ -11,13 +11,24 @@ function AddUserController({makeAddUser}){
     return async function handle(httpRequest){        
         const {body}=httpRequest
 
-        const users = await makeUserDb.GetUsersFromName({name: body.UserName});
+        var users = await makeUserDb.GetUsersFromName({name: body.UserName});
         if (users.length > 0){        
             return{
                 headers,
                 statusCode:400,
                 body:{
                     message:'Username already exists'
+                }
+            }
+        }
+
+        var users = await makeUserDb.GetUsersFromEmail({email: body.Email});
+        if (users.length > 0){        
+            return{
+                headers,
+                statusCode:400,
+                body:{
+                    message:'Account with this email id already exists'
                 }
             }
         }

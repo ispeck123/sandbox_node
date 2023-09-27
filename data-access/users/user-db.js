@@ -34,7 +34,8 @@ function makeUserDb({ExecQuery}) {
         GetChangePasswrdDate,
         GetRegisterPasswrdDate,
         GetAllUsers,
-        GetUsersFromName
+        GetUsersFromName,
+        GetUsersFromEmail
     })
     async function GetAll() {
         sql = "SELECT A.*,B.* FROM ispeck.user_master as A inner join role_maser as B where A.USER_ROLE_ID=B.ROLE_ID"
@@ -201,7 +202,7 @@ function makeUserDb({ExecQuery}) {
         if(token=="No token")
         {
             sql=`UPDATE user_password_track SET FIRST_PASSWORD='${NewPassword}',THIRD_PASSWORD=SECOND_PASSWORD, 
-            SECOND_PASSWORD = '${Password}' WHERE USER_ID='${Id}'`
+            SECOND_PASSWORD = '${Password}' WHERE USER_ID= ${Id}`
             return ExecQuery(sql)
         }
         else
@@ -247,6 +248,11 @@ function makeUserDb({ExecQuery}) {
     
     async function GetUsersFromName({name}){
         sql = `SELECT * FROM user_master where USER_NAME = '${name}';`
+        return ExecQuery(sql)
+    }
+
+    async function GetUsersFromEmail({email}){
+        sql = `SELECT * FROM user_master where USER_EMAIL = '${email}';`
         return ExecQuery(sql)
     }
 }
